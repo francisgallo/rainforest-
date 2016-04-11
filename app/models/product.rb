@@ -1,3 +1,4 @@
 class Product < ActiveRecord::Base
-
-end 
+  validates :desciption, :name, presence :true
+  validates :price_in_Cent, numericality: [only_true: true ]
+end
