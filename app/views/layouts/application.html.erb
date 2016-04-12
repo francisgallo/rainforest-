@@ -17,9 +17,9 @@
   <%= yield %>
     <p class ="userinfo">
       <% if current_user %>
-        Signed in as <%= current_user.email%>, <%= link_to "log out", session_path("current"), :method => :delete %>
+        Signed in as <%= current_user.email%>, <%= link_to "log out",session_path("current"),:method => :delete %>
       <% else %>
-        <% link_to "log in", new_session_path %> or <%= link_to "sign up", new_user_path %>
-      <% end %>  
+        <% link_to "log in",new_session_path %> or <%= link_to "sign up", new_user_path %>
+      <% end %>
 <body>
 </html>
