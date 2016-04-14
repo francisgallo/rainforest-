@@ -1,17 +1,14 @@
-<h1>Products </h1>
+<h1>Products index</h1>
 
-<div>
-  <%= link_to "New Product",new_product_path %>  <%= link_to "log in", new_session_path %>
-</div>
+<%= link_to "New Product", new_product_path %>
 
-<div>
-  <% @products.each do |product| %>
-  <p><%= link_to product.name, product_path(product.id) %>,  <%= product.description %>, <%= product.formatted_price %> </p>
-</div>
+<% @products.each do |product| %>
+  <p>
+    <%=link_to product.name, product_path(product) %>, <%= product.formatted_price%>
+  </p>
 
-
-
-
-
+  <p>
+    <%= product.description %>
+  </p>
 
 <% end %>

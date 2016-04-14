@@ -1,4 +1,6 @@
 <h1>Show products </h1>
+<%= link_to "Back",products_path %> | <%= link_to "Edit Product", edit_product_path(@product) %> | <%= link_to "Delete", @product, method: :delete, data: {confirm: "Delete yes or no??"}%>
+
 <p><%= @product.name %>, <%= @product.description %>, <% @product.formatted_price%></p>
 
 <h3>Reviews</h3>
@@ -10,7 +12,7 @@
      <%= review.comment %>
      <b>
      <% if review.user != nil %>
-       <em> by <%= review.user.email %></em>
+       <em> by <%= review.user.name %>, <%=review.user.email %></em>
        added on: <%= review.created_at %>
     <% end %>
   </p>
@@ -45,6 +47,6 @@
 
   <% else %>
   <p>
-    Please <%= link_to "log in", new_session_path %> to add a review.
+    Please <%= link_to "log in", new_session_path %> to add a review , <%= link_to "edit product", edit_product_path %>
   </p>
 <% end %>

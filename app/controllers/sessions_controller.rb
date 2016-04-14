@@ -6,7 +6,11 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to products_url, notice: "Logged in!"
+
+      if user.name.nil?
+        flash[:alert]="add user name to profile"
+      end
+      redirect_to products_url  #notice: "Logged in!"
     else
       render "new"
     end
